@@ -2,26 +2,40 @@
 <html>
 <head>
 
-  <style>
-      body {
-      background-color: #5C5E4E;
-  }
-  .main-content {
-      background-color: #432121;
-      width: 80%;
-      margin: auto;
-      padding: 2em;
-  }
-  </style>
+<style>
+body {
+    background-color: #5C5E4E;
+}
+.main-content {
+    background-color: #432121;
+    width: 80%;
+    margin: auto;
+    padding: 2em;
+}
+</style>
 
-  <title>Depot</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+<title>Depot</title>
+<%= stylesheet_link_tag    'application', media: 'all' %>
+<%= javascript_include_tag 'application' %>
+<%= csrf_meta_tags %>
 </head>
 <body class='<%= controller.controller_name %>' >
-
-<%= yield %>
-
+<div id="banner">
+    <%= image_tag("swirl.gif") %>
+    <%= @page_title || "Pragmatic Bookshelf" %>
+</div>
+<div id="columns">
+    <div id="side">
+        <ul>
+            <li><a href="http://www....">Home</a></li>
+            <li><a href="http://www..../faq">Questions</a></li>
+            <li><a href="http://www..../news">News</a></li>
+            <li><a href="http://www..../contact">Contact</a></li>
+        </ul>
+    </div>
+    <div ="main">
+        <%= yield %>
+    </div>
+</div>
 </body>
 </html>

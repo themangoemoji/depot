@@ -15,9 +15,9 @@ test "product attributes must not be empty" do
 end
 
 test "product price must be positive" do
-    product = Product.new(title:        "This Title Is The Shit",
-                          description:  "This description is the actual titties",
-                                image_url:  "boob.jpg")
+    product = Product.new(title:        "My Book Title",
+                          description:  "yyy",
+                          image_url:  "zzz.jpg")
     product.price = -1
     assert product.invalid?
     assert_equal "must be greater than or equal to 0.01",
@@ -30,13 +30,12 @@ test "product price must be positive" do
     
     product.price = 1
     assert product.valid?
-    assert_equal "you did it, doooooood."
 
 end
 
 def new_product(image_url)
-    Product.new(title:          "my Book Title",
-                description:    "*obligatory_description*",
+    Product.new(title:          "My Book Title",
+                description:    "yyy",
                 price:          1,
                 image_url:      image_url)
 end
@@ -48,6 +47,7 @@ test "image url" do
     ok.each do |name|
         assert new_product(name).valid?, "#{name} shouldn't be invalid"
     end
+
     bad.each do |name|
         assert new_product(name).invalid?, "#{name} shouldn't be valid"
     end 
